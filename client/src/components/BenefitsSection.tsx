@@ -6,13 +6,13 @@ import { useState, useEffect } from 'react';
 const benefits = [
   {
     icon: Zap,
-    title: 'Rápido de Implementar',
-    description: 'Suas primeiras automações rodando em até 48 horas. Sem burocracia, sem complicação.'
+    title: 'Soluções Personalizadas',
+    description: 'Desenvolvemos automações sob medida para o seu negócio. Sem burocracia, sem complicação.'
   },
   {
     icon: DollarSign,
-    title: 'ROI Comprovado',
-    description: 'Economia média de 70% em custos operacionais. Aumento de 3x na produtividade da equipe.'
+    title: 'Payback Comprovado',
+    description: 'Retorno do investimento em média de 3 a 6 meses. Economia de 70% em custos operacionais e aumento de 3x na produtividade.'
   },
   {
     icon: Shield,
@@ -22,7 +22,7 @@ const benefits = [
 ];
 
 const metrics = [
-  { value: 98, label: 'Precisão da IA', suffix: '%' },
+  { value: 100, label: 'Soluções Customizadas', suffix: '%' },
   { value: 24, label: 'Disponibilidade', suffix: '/7' },
   { value: 80, label: 'Redução de Tempo', suffix: '%', prefix: '-' },
   { value: 3, label: 'Mais Produtividade', suffix: 'x' }

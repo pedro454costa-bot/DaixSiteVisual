@@ -5,8 +5,8 @@ const steps = [
   {
     icon: Search,
     title: 'Análise',
-    description: 'Mapeamos seus processos e identificamos oportunidades de automação',
-    details: ['Diagnóstico completo', 'ROI estimado', 'Priorização'],
+    description: 'Mapeamos seus processos e identificamos oportunidades de automação e implementação de I.A.',
+    details: ['Diagnóstico completo', 'Payback estimado', 'Priorização'],
     gradient: 'from-blue-600 to-blue-500',
     bgGradient: 'from-blue-500/10 to-transparent'
   },
@@ -21,7 +21,7 @@ const steps = [
   {
     icon: Rocket,
     title: 'Implementação',
-    description: 'Desenvolvemos e integramos as automações em até 48 horas',
+    description: 'Desenvolvemos e integramos as automações com agilidade e precisão',
     details: ['Setup rápido', 'Testes rigorosos', 'Treinamento incluso'],
     gradient: 'from-primary to-accent',
     bgGradient: 'from-primary/10 to-transparent'

@@ -39,9 +39,6 @@ export function HeroSection() {
             <p className="text-muted-foreground animate-fade-in-up" style={{ animationDelay: '400ms' }}>
               Chega de <span className="line-through opacity-60">planilhas</span>, <span className="line-through opacity-60">atendimentos manuais</span> e <span className="line-through opacity-60">sistemas cheios de botão</span>.
             </p>
-            <p className="text-foreground font-medium bg-gradient-to-r from-primary/20 to-accent/20 px-4 py-2 rounded-lg border border-primary/20 animate-fade-in-up" style={{ animationDelay: '600ms' }}>
-              A Daix <span className="text-primary font-semibold">automatiza</span> e cria <span className="text-accent font-semibold">sistemas inteligentes</span> pra você focar no que importa.
-            </p>
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
