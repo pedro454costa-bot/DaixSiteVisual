@@ -59,7 +59,7 @@ export function HeroSection() {
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-green-500" />
-              <span>Resultados em 24h</span>
+              <span>Sem mensalidades</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-green-500" />
