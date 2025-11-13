@@ -32,13 +32,17 @@ export function HeroSection() {
             <span className="text-foreground">pro café.</span>
           </h1>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Ela tá ocupada entregando resultados.
-            <br />
-            Chega de planilhas, atendimentos manuais e sistemas cheios de botão.
-            <br />
-            A Daix automatiza e cria sistemas inteligentes pra você focar no que importa.
-          </p>
+          <div className="text-lg md:text-xl max-w-2xl mx-auto space-y-3">
+            <p className="text-foreground font-medium animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+              Ela tá ocupada <span className="text-primary font-semibold">entregando resultados</span>.
+            </p>
+            <p className="text-muted-foreground animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+              Chega de <span className="line-through opacity-60">planilhas</span>, <span className="line-through opacity-60">atendimentos manuais</span> e <span className="line-through opacity-60">sistemas cheios de botão</span>.
+            </p>
+            <p className="text-foreground font-medium bg-gradient-to-r from-primary/20 to-accent/20 px-4 py-2 rounded-lg border border-primary/20 animate-fade-in-up" style={{ animationDelay: '600ms' }}>
+              A Daix <span className="text-primary font-semibold">automatiza</span> e cria <span className="text-accent font-semibold">sistemas inteligentes</span> pra você focar no que importa.
+            </p>
+          </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button size="lg" className="text-base px-8" data-testid="button-automatizar">
