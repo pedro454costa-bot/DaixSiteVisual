@@ -24,7 +24,7 @@ export function HeroSection() {
           </div>
 
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight">
-            A.I{' '}
+            I.A{' '}
             <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
               não tira pausa
             </span>
