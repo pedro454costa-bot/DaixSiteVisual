@@ -4,6 +4,7 @@ import { CheckCircle2, Sparkles, Zap } from 'lucide-react';
 import { DemoModal } from './DemoModal';
 import { TechAnimation } from './TechAnimation';
 import { ParallaxBackground } from './ParallaxBackground';
+import { AutomationFlowEffect } from './AutomationFlowEffect';
 
 export function HeroSection() {
   const [demoModalOpen, setDemoModalOpen] = useState(false);
@@ -28,6 +29,9 @@ export function HeroSection() {
       
       {/* Animated tech particles */}
       <TechAnimation />
+      
+      {/* Automation flow visualization */}
+      <AutomationFlowEffect />
       
       {/* Parallax elements */}
       <ParallaxBackground />
