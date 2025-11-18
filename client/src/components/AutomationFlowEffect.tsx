@@ -227,7 +227,7 @@ export function AutomationFlowEffect() {
     <canvas
       ref={canvasRef}
       className="absolute inset-0 pointer-events-none"
-      style={{ opacity: 0.6 }}
+      style={{ opacity: 0.4 }}
     />
   );
 }
