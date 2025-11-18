@@ -3,7 +3,8 @@ import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/compone
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
-import { Loader2 } from 'lucide-react';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
+import { Loader2, Bot } from 'lucide-react';
 
 interface DemoModalProps {
   open: boolean;
@@ -61,7 +62,7 @@ export function DemoModal({ open, onOpenChange }: DemoModalProps) {
         clearInterval(interval);
         
         if (step === 'greeting') {
-          setTimeout(() => setStep('ask-name'), 800);
+          setTimeout(() => setStep('ask-name'), 2000);
         } else if (step === 'ask-name') {
           setTimeout(() => setStep('name-input'), 500);
         } else if (step === 'ask-whatsapp') {
@@ -98,106 +99,125 @@ export function DemoModal({ open, onOpenChange }: DemoModalProps) {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[500px] bg-gradient-to-br from-blue-950 via-blue-900 to-blue-950 border-blue-500/30 text-white p-8">
+      <DialogContent className="sm:max-w-[500px] bg-gradient-to-br from-blue-950 via-blue-900 to-blue-950 border-blue-500/30 text-white p-8 relative overflow-hidden">
+        {/* Grid effect background */}
+        <div className="absolute inset-0 opacity-10 pointer-events-none">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `
+              linear-gradient(90deg, rgba(59, 130, 246, 0.3) 1px, transparent 1px),
+              linear-gradient(0deg, rgba(59, 130, 246, 0.3) 1px, transparent 1px)
+            `,
+            backgroundSize: '30px 30px'
+          }} />
+        </div>
+        
         <DialogTitle className="sr-only">Agendar Demonstração</DialogTitle>
         <DialogDescription className="sr-only">
           Assistente da DAIX para agendamento de demonstração personalizada
         </DialogDescription>
-        <div className="space-y-6">
-          <div className="min-h-[200px] space-y-4">
-            {displayedText && (
-              <div className="space-y-2">
-                {displayedText.split('\n').map((line, i) => (
-                  <p key={i} className="text-lg leading-relaxed text-blue-50">
-                    {line}
-                  </p>
-                ))}
-              </div>
-            )}
+        <div className="space-y-6 relative z-10">
+          {/* Avatar do assistente */}
+          <div className="flex items-start gap-3">
+            <Avatar className="w-12 h-12 border-2 border-blue-400/50">
+              <AvatarFallback className="bg-blue-600 text-white">
+                <Bot className="w-6 h-6" />
+              </AvatarFallback>
+            </Avatar>
+            <div className="flex-1 min-h-[200px] space-y-4">
+              {displayedText && (
+                <div className="space-y-2 bg-blue-800/40 backdrop-blur-sm rounded-lg p-4 border border-blue-500/20">
+                  {displayedText.split('\n').map((line, i) => (
+                    <p key={i} className="text-lg leading-relaxed text-blue-50">
+                      {line}
+                    </p>
+                  ))}
+                </div>
+              )}
 
-            {isTyping && (
-              <div className="flex items-center gap-2 text-blue-300">
-                <Loader2 className="w-4 h-4 animate-spin" />
-                <span className="text-sm">digitando...</span>
-              </div>
-            )}
+              {isTyping && (
+                <div className="flex items-center gap-2 text-blue-300 bg-blue-800/40 backdrop-blur-sm rounded-lg p-4 border border-blue-500/20">
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                  <span className="text-sm">digitando...</span>
+                </div>
+              )}
 
-            {showInput('name-input') && (
-              <div className="space-y-3 animate-fade-in-up">
-                <Input
-                  placeholder="Digite seu nome"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  onKeyDown={(e) => e.key === 'Enter' && handleNameSubmit()}
-                  className="bg-blue-900/50 border-blue-500/30 text-white placeholder:text-blue-300/50 focus:border-blue-400"
-                  autoFocus
-                  data-testid="demo-modal-name-input"
-                />
-                <Button
-                  onClick={handleNameSubmit}
-                  disabled={!name.trim()}
-                  className="w-full bg-blue-600 hover:bg-blue-500 text-white"
-                  data-testid="demo-modal-name-submit"
-                >
-                  Continuar
-                </Button>
-              </div>
-            )}
+              {showInput('name-input') && (
+                <div className="space-y-3 animate-fade-in-up">
+                  <Input
+                    placeholder="Digite seu nome"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    onKeyDown={(e) => e.key === 'Enter' && handleNameSubmit()}
+                    className="bg-blue-900/50 border-blue-500/30 text-white placeholder:text-blue-300/50 focus:border-blue-400"
+                    autoFocus
+                    data-testid="demo-modal-name-input"
+                  />
+                  <Button
+                    onClick={handleNameSubmit}
+                    disabled={!name.trim()}
+                    className="w-full bg-blue-600 hover:bg-blue-500 text-white"
+                    data-testid="demo-modal-name-submit"
+                  >
+                    Continuar
+                  </Button>
+                </div>
+              )}
 
-            {showInput('whatsapp-input') && (
-              <div className="space-y-3 animate-fade-in-up">
-                <Input
-                  placeholder="(11) 99999-9999"
-                  value={whatsapp}
-                  onChange={(e) => setWhatsapp(e.target.value)}
-                  onKeyDown={(e) => e.key === 'Enter' && handleWhatsappSubmit()}
-                  className="bg-blue-900/50 border-blue-500/30 text-white placeholder:text-blue-300/50 focus:border-blue-400"
-                  autoFocus
-                  data-testid="demo-modal-whatsapp-input"
-                />
-                <Button
-                  onClick={handleWhatsappSubmit}
-                  disabled={!whatsapp.trim()}
-                  className="w-full bg-blue-600 hover:bg-blue-500 text-white"
-                  data-testid="demo-modal-whatsapp-submit"
-                >
-                  Continuar
-                </Button>
-              </div>
-            )}
+              {showInput('whatsapp-input') && (
+                <div className="space-y-3 animate-fade-in-up">
+                  <Input
+                    placeholder="(11) 99999-9999"
+                    value={whatsapp}
+                    onChange={(e) => setWhatsapp(e.target.value)}
+                    onKeyDown={(e) => e.key === 'Enter' && handleWhatsappSubmit()}
+                    className="bg-blue-900/50 border-blue-500/30 text-white placeholder:text-blue-300/50 focus:border-blue-400"
+                    autoFocus
+                    data-testid="demo-modal-whatsapp-input"
+                  />
+                  <Button
+                    onClick={handleWhatsappSubmit}
+                    disabled={!whatsapp.trim()}
+                    className="w-full bg-blue-600 hover:bg-blue-500 text-white"
+                    data-testid="demo-modal-whatsapp-submit"
+                  >
+                    Continuar
+                  </Button>
+                </div>
+              )}
 
-            {showInput('needs-input') && (
-              <div className="space-y-3 animate-fade-in-up">
-                <Textarea
-                  placeholder="Descreva como podemos ajudar..."
-                  value={needs}
-                  onChange={(e) => setNeeds(e.target.value)}
-                  className="bg-blue-900/50 border-blue-500/30 text-white placeholder:text-blue-300/50 focus:border-blue-400 min-h-[100px]"
-                  autoFocus
-                  data-testid="demo-modal-needs-input"
-                />
-                <Button
-                  onClick={handleNeedsSubmit}
-                  disabled={!needs.trim()}
-                  className="w-full bg-blue-600 hover:bg-blue-500 text-white"
-                  data-testid="demo-modal-needs-submit"
-                >
-                  Enviar
-                </Button>
-              </div>
-            )}
+              {showInput('needs-input') && (
+                <div className="space-y-3 animate-fade-in-up">
+                  <Textarea
+                    placeholder="Descreva como podemos ajudar..."
+                    value={needs}
+                    onChange={(e) => setNeeds(e.target.value)}
+                    className="bg-blue-900/50 border-blue-500/30 text-white placeholder:text-blue-300/50 focus:border-blue-400 min-h-[100px]"
+                    autoFocus
+                    data-testid="demo-modal-needs-input"
+                  />
+                  <Button
+                    onClick={handleNeedsSubmit}
+                    disabled={!needs.trim()}
+                    className="w-full bg-blue-600 hover:bg-blue-500 text-white"
+                    data-testid="demo-modal-needs-submit"
+                  >
+                    Enviar
+                  </Button>
+                </div>
+              )}
 
-            {step === 'final' && !isTyping && (
-              <div className="pt-4 animate-fade-in-up">
-                <Button
-                  onClick={() => onOpenChange(false)}
-                  className="w-full bg-blue-600 hover:bg-blue-500 text-white"
-                  data-testid="demo-modal-close"
-                >
-                  Fechar
-                </Button>
-              </div>
-            )}
+              {step === 'final' && !isTyping && (
+                <div className="pt-4 animate-fade-in-up">
+                  <Button
+                    onClick={() => onOpenChange(false)}
+                    className="w-full bg-blue-600 hover:bg-blue-500 text-white"
+                    data-testid="demo-modal-close"
+                  >
+                    Fechar
+                  </Button>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </DialogContent>

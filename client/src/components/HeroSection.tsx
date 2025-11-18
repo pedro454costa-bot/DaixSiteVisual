@@ -27,13 +27,14 @@ export function HeroSection() {
       <AutomationFlowEffect />
       
       {/* Subtle animated grid */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-20">
         <div className="absolute inset-0" style={{
           backgroundImage: `
-            linear-gradient(90deg, hsl(var(--primary) / 0.03) 1px, transparent 1px),
-            linear-gradient(0deg, hsl(var(--primary) / 0.03) 1px, transparent 1px)
+            linear-gradient(90deg, hsl(var(--primary) / 0.1) 1px, transparent 1px),
+            linear-gradient(0deg, hsl(var(--primary) / 0.1) 1px, transparent 1px)
           `,
-          backgroundSize: '60px 60px'
+          backgroundSize: '40px 40px',
+          animation: 'grid-move 30s linear infinite'
         }} />
       </div>
 
@@ -70,7 +71,7 @@ export function HeroSection() {
               Ela tá ocupada <span className="text-primary font-semibold">entregando resultados</span>.
             </p>
             <p className="text-muted-foreground animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-              Chega de <span className="line-through opacity-60">planilhas</span>, <span className="line-through opacity-60">atendimentos manuais</span> e <span className="line-through opacity-60">sistemas cheios de botão</span>.
+              Chega de <span className="line-through opacity-60">planilhas</span>, <span className="line-through opacity-60">atendimentos manuais</span> e <span className="line-through opacity-60">sistemas cheios de botões</span>.
             </p>
           </div>
 
