@@ -1,10 +1,10 @@
 import { Card } from '@/components/ui/card';
-import { MessageSquare, BarChart3, Settings, Check } from 'lucide-react';
+import { MessageSquare, BarChart3, Settings, Check, Cpu } from 'lucide-react';
 
 const solutions = [
   {
     icon: MessageSquare,
-    title: 'Chatbots Inteligentes',
+    title: 'IA Conversacional',
     description: 'Atendimento automatizado que entende contexto, resolve problemas e qualifica leads sem você mover um dedo.',
     features: [
       'WhatsApp, Instagram, Site',
@@ -31,6 +31,16 @@ const solutions = [
       'Zero erro humano',
       'Economia de 80% do tempo'
     ]
+  },
+  {
+    icon: Cpu,
+    title: 'Sistemas Inteligentes',
+    description: 'A DAIX cria sistemas inteligentes sob medida para sua empresa. Sem instalação, sem complicação — tudo na nuvem.',
+    features: [
+      '100% na nuvem',
+      'Customização total',
+      'Manutenção inclusa'
+    ]
   }
 ];
 
@@ -48,7 +58,7 @@ export function SolutionsSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {solutions.map((solution, index) => (
             <Card 
               key={index}

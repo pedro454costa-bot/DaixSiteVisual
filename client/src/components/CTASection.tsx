@@ -1,7 +1,11 @@
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, Zap, MessageCircle } from 'lucide-react';
+import { DemoModal } from './DemoModal';
 
 export function CTASection() {
+  const [demoModalOpen, setDemoModalOpen] = useState(false);
+
   return (
     <section className="py-24 relative overflow-hidden">
       <div 
@@ -39,6 +43,7 @@ export function CTASection() {
               variant="secondary"
               className="text-base px-8 bg-white text-primary hover:bg-white/90"
               data-testid="button-agendar"
+              onClick={() => setDemoModalOpen(true)}
             >
               <MessageCircle className="w-5 h-5 mr-2" />
               Agendar Demonstração
@@ -48,8 +53,11 @@ export function CTASection() {
               variant="outline"
               className="text-base px-8 bg-transparent text-white border-white/30 hover:bg-white/10 backdrop-blur-sm"
               data-testid="button-falar-especialista"
+              asChild
             >
-              Falar com Especialista
+              <a href="https://wa.me/5511965372832" target="_blank" rel="noopener noreferrer">
+                Falar com Especialista
+              </a>
             </Button>
           </div>
 
@@ -69,6 +77,8 @@ export function CTASection() {
           </div>
         </div>
       </div>
+
+      <DemoModal open={demoModalOpen} onOpenChange={setDemoModalOpen} />
     </section>
   );
 }

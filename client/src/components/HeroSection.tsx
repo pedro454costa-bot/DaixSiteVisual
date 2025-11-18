@@ -1,7 +1,11 @@
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, Sparkles } from 'lucide-react';
+import { DemoModal } from './DemoModal';
 
 export function HeroSection() {
+  const [demoModalOpen, setDemoModalOpen] = useState(false);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       <div 
@@ -42,11 +46,22 @@ export function HeroSection() {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" className="text-base px-8" data-testid="button-automatizar">
+            <Button 
+              size="lg" 
+              className="text-base px-8" 
+              data-testid="button-automatizar"
+              onClick={() => document.getElementById('solucoes')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               Automatizar Agora
               <span className="ml-2">→</span>
             </Button>
-            <Button size="lg" variant="outline" className="text-base px-8 backdrop-blur-sm" data-testid="button-demonstracao">
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="text-base px-8 backdrop-blur-sm" 
+              data-testid="button-demonstracao"
+              onClick={() => setDemoModalOpen(true)}
+            >
               Ver Demonstração
               <span className="ml-2">▶</span>
             </Button>
@@ -68,6 +83,8 @@ export function HeroSection() {
           </div>
         </div>
       </div>
+
+      <DemoModal open={demoModalOpen} onOpenChange={setDemoModalOpen} />
     </section>
   );
 }
