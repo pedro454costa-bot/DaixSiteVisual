@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
@@ -99,6 +99,10 @@ export function DemoModal({ open, onOpenChange }: DemoModalProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[500px] bg-gradient-to-br from-blue-950 via-blue-900 to-blue-950 border-blue-500/30 text-white p-8">
+        <DialogTitle className="sr-only">Agendar Demonstração</DialogTitle>
+        <DialogDescription className="sr-only">
+          Assistente da DAIX para agendamento de demonstração personalizada
+        </DialogDescription>
         <div className="space-y-6">
           <div className="min-h-[200px] space-y-4">
             {displayedText && (
