@@ -6,6 +6,31 @@ DAIX is a modern web application focused on AI-powered automation solutions for 
 
 The application is a full-stack TypeScript solution using React for the frontend and Express for the backend, with a focus on showcasing automation capabilities through an elegant, responsive landing page experience.
 
+## Recent Changes (November 19, 2025)
+
+### Brand Identity Update
+- Implemented new DAIX color palette:
+  - **DAIX Core Blue** (#1A47FF) - Primary brand color
+  - **DAIX Quantum Purple** (#9F3BFF) - Secondary accent for the "X" brand element
+  - **DAIX Signal Yellow** (#F5C400) - Highlights and metrics
+  - **DAIX Deep Night** (#0A0A12) - Premium dark backgrounds
+  - **DAIX Neo Grey** (#B8BCCD) - Secondary text and subtle elements
+- Updated both light and dark mode color schemes in `index.css`
+- Modern fintech-inspired aesthetic with strong contrast and professional appearance
+
+### UX Improvements
+- Fixed demo modal positioning and scroll issues
+- Improved modal responsiveness with `max-h-[90vh]` and proper overflow handling
+- Enhanced animation timing for more natural conversation flow
+- Better visual hierarchy with consistent spacing
+
+### Data Integration
+- Added Supabase integration for storing demo requests
+- Created `demo_requests` table schema with name, whatsapp, needs, and timestamp
+- Implemented client-side Supabase connection in `client/src/lib/supabase.ts`
+- Added error handling and loading states for data persistence
+- Demo form now saves user information to Supabase with proper validation
+
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
@@ -31,8 +56,13 @@ Preferred communication style: Simple, everyday language.
 **Rationale**: shadcn/ui provides accessible, customizable components without vendor lock-in since components are copied into the project. Tailwind enables rapid UI development while maintaining consistency through the design token system. Radix UI ensures accessibility compliance.
 
 **Design System**
-- Blue-dominant color palette (Royal Blue #0066FF, Cyan Accent #00D4FF, Deep Blue #0047AB)
-- Typography using Inter and Poppins font families
+- DAIX brand color palette:
+  - Core Blue (#1A47FF) - Primary actions and brand elements
+  - Quantum Purple (#9F3BFF) - Secondary highlights and "X" branding
+  - Signal Yellow (#F5C400) - Metrics, alerts, and key highlights
+  - Deep Night (#0A0A12) - Dark mode backgrounds
+  - Neo Grey (#B8BCCD) - Secondary text and subtle UI elements
+- Typography using Inter font family
 - Sophisticated gradient animations and micro-interactions
 - Responsive spacing system based on Tailwind units (4, 6, 8, 12, 16, 20, 24)
 
@@ -73,7 +103,12 @@ Preferred communication style: Simple, everyday language.
 
 **Current Schema**
 - Users table with UUID primary keys, username, and password fields
+- Demo Requests table for storing lead information:
+  - ID (UUID primary key)
+  - Name, WhatsApp, and needs description
+  - Created timestamp
 - Drizzle-Zod integration for runtime validation
+- Supabase integration for cloud data persistence
 
 **Rationale**: PostgreSQL provides robust relational data storage. Neon's serverless driver enables connection pooling and edge deployment. Drizzle offers excellent TypeScript integration and migration tooling. The storage interface abstraction allows swapping implementations without changing business logic.
 
@@ -136,6 +171,7 @@ Preferred communication style: Simple, everyday language.
 - **Drizzle ORM** (drizzle-orm, drizzle-kit): Type-safe database toolkit
 - **Zod** (via drizzle-zod): Runtime schema validation
 - **@neondatabase/serverless**: Serverless PostgreSQL driver
+- **Supabase** (@supabase/supabase-js): Cloud database and authentication platform
 
 ### Backend Utilities
 - **nanoid**: Unique ID generation

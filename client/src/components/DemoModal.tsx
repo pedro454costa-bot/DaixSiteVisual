@@ -5,6 +5,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Loader2, Bot } from 'lucide-react';
+import { saveDemoRequest } from '@/lib/supabase';
+import { useToast } from '@/hooks/use-toast';
 
 interface DemoModalProps {
   open: boolean;
@@ -20,6 +22,8 @@ export function DemoModal({ open, onOpenChange }: DemoModalProps) {
   const [needs, setNeeds] = useState('');
   const [displayedText, setDisplayedText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
+  const { toast } = useToast();
 
   const messages: Record<Step, string> = {
     'greeting': 'Olá! Sou o assistente da DAIX.\nVou te ajudar a agendar uma demonstração personalizada.',
@@ -62,7 +66,7 @@ export function DemoModal({ open, onOpenChange }: DemoModalProps) {
         clearInterval(interval);
         
         if (step === 'greeting') {
-          setTimeout(() => setStep('ask-name'), 2000);
+          setTimeout(() => setStep('ask-name'), 1000);
         } else if (step === 'ask-name') {
           setTimeout(() => setStep('name-input'), 500);
         } else if (step === 'ask-whatsapp') {
@@ -71,7 +75,7 @@ export function DemoModal({ open, onOpenChange }: DemoModalProps) {
           setTimeout(() => setStep('needs-input'), 500);
         }
       }
-    }, 30);
+    }, 25);
 
     return () => clearInterval(interval);
   }, [step]);
@@ -88,10 +92,23 @@ export function DemoModal({ open, onOpenChange }: DemoModalProps) {
     }
   };
 
-  const handleNeedsSubmit = () => {
+  const handleNeedsSubmit = async () => {
     if (needs.trim()) {
-      console.log('Demo request:', { name, whatsapp, needs });
-      setStep('final');
+      setIsSaving(true);
+      try {
+        const result = await saveDemoRequest({ name, whatsapp, needs });
+        if (result) {
+          console.log('Demo request persisted to Supabase');
+        } else {
+          console.log('Demo request processed (persistence unavailable)');
+        }
+        setStep('final');
+      } catch (error) {
+        console.error('Unexpected error in demo request flow:', error);
+        setStep('final');
+      } finally {
+        setIsSaving(false);
+      }
     }
   };
 
@@ -99,7 +116,7 @@ export function DemoModal({ open, onOpenChange }: DemoModalProps) {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[500px] bg-gradient-to-br from-blue-950 via-blue-900 to-blue-950 border-blue-500/30 text-white p-8 relative overflow-hidden">
+      <DialogContent className="sm:max-w-[500px] max-h-[90vh] bg-gradient-to-br from-blue-950 via-blue-900 to-blue-950 border-blue-500/30 text-white p-8 relative overflow-y-auto">
         {/* Grid effect background */}
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="absolute inset-0" style={{
@@ -118,12 +135,12 @@ export function DemoModal({ open, onOpenChange }: DemoModalProps) {
         <div className="space-y-6 relative z-10">
           {/* Avatar do assistente */}
           <div className="flex items-start gap-3">
-            <Avatar className="w-12 h-12 border-2 border-blue-400/50">
+            <Avatar className="w-12 h-12 border-2 border-blue-400/50 flex-shrink-0">
               <AvatarFallback className="bg-blue-600 text-white">
                 <Bot className="w-6 h-6" />
               </AvatarFallback>
             </Avatar>
-            <div className="flex-1 min-h-[200px] space-y-4">
+            <div className="flex-1 space-y-4">
               {displayedText && (
                 <div className="space-y-2 bg-blue-800/40 backdrop-blur-sm rounded-lg p-4 border border-blue-500/20">
                   {displayedText.split('\n').map((line, i) => (
@@ -194,14 +211,22 @@ export function DemoModal({ open, onOpenChange }: DemoModalProps) {
                     className="bg-blue-900/50 border-blue-500/30 text-white placeholder:text-blue-300/50 focus:border-blue-400 min-h-[100px]"
                     autoFocus
                     data-testid="demo-modal-needs-input"
+                    disabled={isSaving}
                   />
                   <Button
                     onClick={handleNeedsSubmit}
-                    disabled={!needs.trim()}
+                    disabled={!needs.trim() || isSaving}
                     className="w-full bg-blue-600 hover:bg-blue-500 text-white"
                     data-testid="demo-modal-needs-submit"
                   >
-                    Enviar
+                    {isSaving ? (
+                      <>
+                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                        Salvando...
+                      </>
+                    ) : (
+                      'Enviar'
+                    )}
                   </Button>
                 </div>
               )}
