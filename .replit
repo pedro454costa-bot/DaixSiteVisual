@@ -15,6 +15,10 @@ localPort = 5000
 externalPort = 80
 
 [[ports]]
+localPort = 34201
+externalPort = 3003
+
+[[ports]]
 localPort = 43813
 externalPort = 3001
 
@@ -55,3 +59,9 @@ outputType = "webview"
 
 [agent]
 expertMode = true
+
+[userenv]
+
+[userenv.shared]
+VITE_SUPABASE_URL = "https://onpahhuahzblzkgmuaim.supabase.co"
+VITE_SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9ucGFoaHVhaHpibHprZ211YWltIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM1MTAyMjcsImV4cCI6MjA3OTA4NjIyN30.LUW0A3CQZbs-OmPad7_ffIGid1A-H2rvLJVtNSvPQoc"

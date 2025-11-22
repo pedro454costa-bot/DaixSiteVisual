@@ -1,10 +1,21 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { CheckCircle2, Sparkles, Zap } from 'lucide-react';
+import { CheckCircle2, Sparkles, Zap, MessageSquare, Database, Bot, FileSpreadsheet, Mail, Calendar, Globe, ShoppingCart } from 'lucide-react';
 import { DemoModal } from './DemoModal';
 import { TechAnimation } from './TechAnimation';
 import { ParallaxBackground } from './ParallaxBackground';
 import { AutomationFlowEffect } from './AutomationFlowEffect';
+
+const automationLogos = [
+  { icon: MessageSquare, label: 'WhatsApp', color: 'text-green-400' },
+  { icon: Database, label: 'CRM', color: 'text-purple-400' },
+  { icon: Bot, label: 'Chatbots', color: 'text-primary' },
+  { icon: FileSpreadsheet, label: 'Planilhas', color: 'text-emerald-400' },
+  { icon: Mail, label: 'Email', color: 'text-orange-400' },
+  { icon: Calendar, label: 'Agendas', color: 'text-pink-400' },
+  { icon: Globe, label: 'Sites', color: 'text-cyan-400' },
+  { icon: ShoppingCart, label: 'E-commerce', color: 'text-yellow-400' }
+];
 
 export function HeroSection() {
   const [demoModalOpen, setDemoModalOpen] = useState(false);
@@ -95,6 +106,25 @@ export function HeroSection() {
               Ver Demonstração
               <span className="ml-2">▶</span>
             </Button>
+          </div>
+
+          {/* Logos de Automação */}
+          <div className="pt-12 space-y-4">
+            <p className="text-sm text-muted-foreground">Automatize tudo que é repetitivo</p>
+            <div className="flex flex-wrap items-center justify-center gap-6">
+              {automationLogos.map((logo, index) => (
+                <div 
+                  key={index}
+                  className="flex flex-col items-center gap-2 opacity-60 hover:opacity-100 transition-opacity"
+                  data-testid={`logo-${index}`}
+                >
+                  <div className={`w-12 h-12 rounded-lg bg-muted/50 backdrop-blur-sm flex items-center justify-center hover-elevate`}>
+                    <logo.icon className={`w-6 h-6 ${logo.color}`} />
+                  </div>
+                  <span className="text-xs text-muted-foreground">{logo.label}</span>
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-6 pt-8 text-sm text-muted-foreground">
