@@ -2,63 +2,109 @@
 @tailwind components;
 @tailwind utilities;
 
-/* LIGHT MODE */
+/* DAIX IDENTITY - DARK THEME ONLY */
 :root {
-  --button-outline: rgba(0,0,0, .10);
-  --badge-outline: rgba(0,0,0, .05);
-  --opaque-button-border-intensity: -8;
-  --elevate-1: rgba(0,0,0, .03);
-  --elevate-2: rgba(0,0,0, .08);
-  --background: 0 0% 100%;
-  --foreground: 240 30% 6%;
-  --border: 228 20% 92%;
-  --card: 0 0% 98%;
-  --card-foreground: 240 30% 6%;
-  --card-border: 228 20% 94%;
-  --sidebar: 228 20% 96%;
-  --sidebar-foreground: 240 30% 6%;
-  --sidebar-border: 228 20% 90%;
-  --sidebar-primary: 228 100% 55%;
+  /* DAIX Core Colors */
+  --daix-primary: 220 100% 53%;       /* #0B5DFF - Azul Tech (DAI no logo) */
+  --daix-secondary: 0 94% 25%;        /* #780606 - Vermelho Profundo (X no logo) */
+  --daix-cta: 0 100% 62%;             /* #FF3B3B - Vermelho Claro (CTAs) */
+  --daix-accent: 188 100% 50%;        /* #00E6FF - Neon Ciano (acentos, bordas) */
+  --daix-bg: 0 0% 4%;                 /* #0A0A0A - Preto Premium */
+  --daix-white: 0 0% 100%;            /* #FFFFFF */
+  --daix-gray-light: 212 16% 82%;     /* #C9CED6 */
+  --daix-gray-dark: 225 6% 57%;       /* #8C8F96 */
+  --daix-success: 157 100% 50%;       /* #00FF8A */
+  --daix-error: 350 100% 62%;         /* #FF3B5C */
+
+  /* System Variables */
+  --button-outline: rgba(0, 230, 255, .15);
+  --badge-outline: rgba(0, 230, 255, .10);
+  --opaque-button-border-intensity: 12;
+  --elevate-1: rgba(0, 230, 255, .05);
+  --elevate-2: rgba(0, 230, 255, .12);
+  
+  /* Background & Foreground */
+  --background: 0 0% 4%;              /* Preto Premium */
+  --foreground: 0 0% 100%;            /* Branco */
+  
+  /* Borders & Cards */
+  --border: 188 100% 20%;             /* Ciano escuro para bordas */
+  --card: 0 0% 6%;                    /* Card levemente mais claro que bg */
+  --card-foreground: 0 0% 100%;
+  --card-border: 188 100% 25%;
+  
+  /* Sidebar */
+  --sidebar: 0 0% 5%;
+  --sidebar-foreground: 0 0% 100%;
+  --sidebar-border: 188 100% 20%;
+  --sidebar-primary: 220 100% 53%;    /* Azul Tech */
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 228 20% 92%;
-  --sidebar-accent-foreground: 240 30% 6%;
-  --sidebar-ring: 228 100% 55%;
-  --popover: 228 20% 94%;
-  --popover-foreground: 240 30% 6%;
-  --popover-border: 228 20% 88%;
-  --primary: 228 100% 55%;
+  --sidebar-accent: 0 0% 8%;
+  --sidebar-accent-foreground: 0 0% 100%;
+  --sidebar-ring: 188 100% 50%;       /* Neon Ciano */
+  
+  /* Popover */
+  --popover: 0 0% 6%;
+  --popover-foreground: 0 0% 100%;
+  --popover-border: 188 100% 25%;
+  
+  /* Primary - Azul Tech */
+  --primary: 220 100% 53%;
   --primary-foreground: 0 0% 100%;
-  --secondary: 275 100% 62%;
+  
+  /* Secondary - Vermelho Profundo */
+  --secondary: 0 94% 25%;
   --secondary-foreground: 0 0% 100%;
-  --muted: 228 20% 92%;
-  --muted-foreground: 228 20% 40%;
-  --accent: 48 100% 48%;
-  --accent-foreground: 240 30% 6%;
-  --destructive: 0 84% 48%;
+  
+  /* Muted */
+  --muted: 0 0% 10%;
+  --muted-foreground: 212 16% 82%;    /* Cinza claro */
+  
+  /* Accent - Neon Ciano */
+  --accent: 188 100% 50%;
+  --accent-foreground: 0 0% 4%;
+  
+  /* Destructive/CTA - Vermelho CTA */
+  --destructive: 0 100% 62%;
   --destructive-foreground: 0 0% 100%;
-  --input: 228 20% 75%;
-  --ring: 228 100% 55%;
-  --chart-1: 228 100% 55%;
-  --chart-2: 275 100% 62%;
-  --chart-3: 48 100% 48%;
-  --chart-4: 228 20% 76%;
-  --chart-5: 240 30% 6%;
+  
+  /* Input & Ring */
+  --input: 0 0% 12%;
+  --ring: 188 100% 50%;               /* Neon Ciano */
+  
+  /* Charts */
+  --chart-1: 220 100% 53%;            /* Azul Tech */
+  --chart-2: 0 94% 25%;               /* Vermelho Profundo */
+  --chart-3: 188 100% 50%;            /* Neon Ciano */
+  --chart-4: 212 16% 82%;             /* Cinza claro */
+  --chart-5: 225 6% 57%;              /* Cinza escuro */
+  
+  /* Typography */
   --font-sans: Inter, system-ui, -apple-system, sans-serif;
   --font-serif: Georgia, serif;
-  --font-mono: Menlo, monospace;
+  --font-mono: 'Fira Code', 'Courier New', monospace;
+  
+  /* Layout */
   --radius: .5rem;
-  --shadow-2xs: 0px 2px 0px 0px hsl(220 8% 50% / 0.00);
-  --shadow-xs: 0px 2px 0px 0px hsl(220 8% 50% / 0.00);
-  --shadow-sm: 0px 2px 0px 0px hsl(220 8% 50% / 0.00), 0px 1px 2px -1px hsl(220 8% 50% / 0.00);
-  --shadow: 0px 2px 0px 0px hsl(220 8% 50% / 0.00), 0px 1px 2px -1px hsl(220 8% 50% / 0.00);
-  --shadow-md: 0px 2px 0px 0px hsl(220 8% 50% / 0.00), 0px 2px 4px -1px hsl(220 8% 50% / 0.00);
-  --shadow-lg: 0px 2px 0px 0px hsl(220 8% 50% / 0.00), 0px 4px 6px -1px hsl(220 8% 50% / 0.00);
-  --shadow-xl: 0px 2px 0px 0px hsl(220 8% 50% / 0.00), 0px 8px 10px -1px hsl(220 8% 50% / 0.00);
-  --shadow-2xl: 0px 2px 0px 0px hsl(220 8% 50% / 0.00);
   --tracking-normal: 0em;
   --spacing: 0.25rem;
+  
+  /* Neon Shadows */
+  --shadow-neon-cyan: 0 0 10px rgba(0, 230, 255, 0.5), 0 0 20px rgba(0, 230, 255, 0.3);
+  --shadow-neon-blue: 0 0 10px rgba(11, 93, 255, 0.5), 0 0 20px rgba(11, 93, 255, 0.3);
+  --shadow-neon-red: 0 0 10px rgba(255, 59, 59, 0.5), 0 0 20px rgba(255, 59, 59, 0.3);
+  
+  /* Minimal shadows for floating elements */
+  --shadow-2xs: 0px 2px 4px 0px rgba(0, 230, 255, 0.08);
+  --shadow-xs: 0px 2px 4px 0px rgba(0, 230, 255, 0.1);
+  --shadow-sm: 0px 4px 8px 0px rgba(0, 230, 255, 0.12);
+  --shadow: 0px 4px 12px 0px rgba(0, 230, 255, 0.15);
+  --shadow-md: 0px 6px 16px 0px rgba(0, 230, 255, 0.18);
+  --shadow-lg: 0px 8px 24px 0px rgba(0, 230, 255, 0.22);
+  --shadow-xl: 0px 12px 32px 0px rgba(0, 230, 255, 0.26);
+  --shadow-2xl: 0px 16px 48px 0px rgba(0, 230, 255, 0.3);
 
-/* Fallback for older browsers */
+  /* Fallback for older browsers */
   --sidebar-primary-border: hsl(var(--sidebar-primary));
   --sidebar-primary-border: hsl(from hsl(var(--sidebar-primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
 
@@ -88,81 +134,7 @@
 }
 
 .dark {
-  --button-outline: rgba(255,255,255, .10);
-  --badge-outline: rgba(255,255,255, .05);
-  --opaque-button-border-intensity: 9;
-  --elevate-1: rgba(255,255,255, .04);
-  --elevate-2: rgba(255,255,255, .09);
-  --background: 240 30% 6%;
-  --foreground: 228 20% 98%;
-  --border: 240 30% 14%;
-  --card: 240 30% 8%;
-  --card-foreground: 228 20% 98%;
-  --card-border: 240 30% 12%;
-  --sidebar: 240 30% 10%;
-  --sidebar-foreground: 228 20% 98%;
-  --sidebar-border: 240 30% 16%;
-  --sidebar-primary: 228 100% 55%;
-  --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 240 30% 14%;
-  --sidebar-accent-foreground: 228 20% 98%;
-  --sidebar-ring: 228 100% 55%;
-  --popover: 240 30% 12%;
-  --popover-foreground: 228 20% 98%;
-  --popover-border: 240 30% 18%;
-  --primary: 228 100% 55%;
-  --primary-foreground: 0 0% 100%;
-  --secondary: 275 100% 62%;
-  --secondary-foreground: 0 0% 100%;
-  --muted: 240 30% 14%;
-  --muted-foreground: 228 20% 70%;
-  --accent: 48 100% 58%;
-  --accent-foreground: 240 30% 6%;
-  --destructive: 0 84% 48%;
-  --destructive-foreground: 0 0% 100%;
-  --input: 240 30% 25%;
-  --ring: 228 100% 55%;
-  --chart-1: 228 100% 60%;
-  --chart-2: 275 100% 65%;
-  --chart-3: 48 100% 58%;
-  --chart-4: 228 20% 76%;
-  --chart-5: 240 30% 15%;
-  --shadow-2xs: 0px 2px 0px 0px hsl(220 15% 8% / 0.00);
-  --shadow-xs: 0px 2px 0px 0px hsl(220 15% 8% / 0.00);
-  --shadow-sm: 0px 2px 0px 0px hsl(220 15% 8% / 0.00), 0px 1px 2px -1px hsl(220 15% 8% / 0.00);
-  --shadow: 0px 2px 0px 0px hsl(220 15% 8% / 0.00), 0px 1px 2px -1px hsl(220 15% 8% / 0.00);
-  --shadow-md: 0px 2px 0px 0px hsl(220 15% 8% / 0.00), 0px 2px 4px -1px hsl(220 15% 8% / 0.00);
-  --shadow-lg: 0px 2px 0px 0px hsl(220 15% 8% / 0.00), 0px 4px 6px -1px hsl(220 15% 8% / 0.00);
-  --shadow-xl: 0px 2px 0px 0px hsl(220 15% 8% / 0.00), 0px 8px 10px -1px hsl(220 15% 8% / 0.00);
-  --shadow-2xl: 0px 2px 0px 0px hsl(220 15% 8% / 0.00);
-
-/* Fallback for older browsers */
-  --sidebar-primary-border: hsl(var(--sidebar-primary));
-  --sidebar-primary-border: hsl(from hsl(var(--sidebar-primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
-
-  /* Fallback for older browsers */
-  --sidebar-accent-border: hsl(var(--sidebar-accent));
-  --sidebar-accent-border: hsl(from hsl(var(--sidebar-accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
-
-  /* Fallback for older browsers */
-  --primary-border: hsl(var(--primary));
-  --primary-border: hsl(from hsl(var(--primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
-
-  /* Fallback for older browsers */
-  --secondary-border: hsl(var(--secondary));
-  --secondary-border: hsl(from hsl(var(--secondary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
-
-  /* Fallback for older browsers */
-  --muted-border: hsl(var(--muted));
-  --muted-border: hsl(from hsl(var(--muted)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
-
-  /* Fallback for older browsers */
-  --accent-border: hsl(var(--accent));
-  --accent-border: hsl(from hsl(var(--accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
-
-  /* Fallback for older browsers */
-  --destructive-border: hsl(var(--destructive));
-  --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  color-scheme: dark;
 }
 
 @layer base {
@@ -207,6 +179,62 @@
     content: attr(data-placeholder);
     color: hsl(var(--muted-foreground));
     pointer-events: none;
+  }
+
+  /* DAIX NEON EFFECTS */
+  .icon-neon {
+    filter: drop-shadow(0 0 6px hsl(var(--daix-accent)));
+  }
+
+  .glow-cyan {
+    box-shadow: var(--shadow-neon-cyan);
+  }
+
+  .glow-blue {
+    box-shadow: var(--shadow-neon-blue);
+  }
+
+  .glow-red {
+    box-shadow: var(--shadow-neon-red);
+  }
+
+  .border-neon-cyan {
+    border-color: hsl(var(--daix-accent));
+    box-shadow: 0 0 8px rgba(0, 230, 255, 0.4);
+  }
+
+  .border-neon-blue {
+    border-color: hsl(var(--daix-primary));
+    box-shadow: 0 0 8px rgba(11, 93, 255, 0.4);
+  }
+
+  .text-neon-cyan {
+    color: hsl(var(--daix-accent));
+    text-shadow: 0 0 10px rgba(0, 230, 255, 0.6);
+  }
+
+  .text-neon-blue {
+    color: hsl(var(--daix-primary));
+    text-shadow: 0 0 10px rgba(11, 93, 255, 0.6);
+  }
+
+  .hover-glow-cyan {
+    transition: all 0.3s ease;
+  }
+
+  .hover-glow-cyan:hover {
+    box-shadow: var(--shadow-neon-cyan);
+    transform: translateY(-2px);
+  }
+
+  .hover-glow-blue:hover {
+    box-shadow: var(--shadow-neon-blue);
+    transform: translateY(-2px);
+  }
+
+  .hover-glow-red:hover {
+    box-shadow: var(--shadow-neon-red);
+    transform: translateY(-2px);
   }
 
   /* .no-default-hover-elevate/no-default-active-elevate is an escape hatch so consumers of
