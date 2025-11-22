@@ -45,7 +45,7 @@ export function CTASection() {
               data-testid="button-agendar"
               onClick={() => setDemoModalOpen(true)}
             >
-              <MessageCircle className="w-5 h-5 mr-2" />
+              <MessageCircle className="w-5 h-5 mr-2 icon-neon" />
               Agendar Demonstração
             </Button>
             <Button 

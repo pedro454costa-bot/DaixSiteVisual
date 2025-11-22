@@ -46,7 +46,7 @@ export function Footer() {
                   aria-label={social.label}
                   data-testid={`link-social-${index}`}
                 >
-                  <social.icon className="w-4 h-4 text-muted-foreground" />
+                  <social.icon className="w-4 h-4 text-muted-foreground icon-neon" />
                 </a>
               ))}
             </div>
@@ -96,7 +96,7 @@ export function Footer() {
                     className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
                     data-testid={`link-contact-${index}`}
                   >
-                    <link.icon className="w-4 h-4" />
+                    <link.icon className="w-4 h-4 icon-neon" />
                     {link.label}
                   </a>
                 </li>

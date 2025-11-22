@@ -97,7 +97,7 @@ export function ProcessSection() {
 
                 <div className="pt-4 flex items-center gap-2 text-sm font-medium text-primary opacity-0 group-hover:opacity-100 transition-opacity">
                   <span>Saiba mais</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 icon-neon group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
             </Card>
