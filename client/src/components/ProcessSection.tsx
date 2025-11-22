@@ -7,16 +7,16 @@ const steps = [
     title: 'Análise',
     description: 'Mapeamos seus processos e identificamos oportunidades de automação e implementação de I.A.',
     details: ['Diagnóstico completo', 'Payback estimado', 'Priorização'],
-    gradient: 'from-blue-600 to-blue-500',
-    bgGradient: 'from-blue-500/10 to-transparent'
+    gradient: 'from-primary to-accent',
+    bgGradient: 'from-primary/10 to-transparent'
   },
   {
     icon: Lightbulb,
     title: 'Planejamento',
     description: 'Desenhamos a solução ideal com IA personalizada para sua operação',
     details: ['Arquitetura da solução', 'Integrações necessárias', 'Timeline definido'],
-    gradient: 'from-cyan-600 to-cyan-500',
-    bgGradient: 'from-cyan-500/10 to-transparent'
+    gradient: 'from-accent to-primary',
+    bgGradient: 'from-accent/10 to-transparent'
   },
   {
     icon: Rocket,
@@ -31,8 +31,8 @@ const steps = [
     title: 'Resultados',
     description: 'Acompanhamos métricas e otimizamos continuamente sua IA',
     details: ['Monitoramento 24/7', 'Otimização contínua', 'Suporte dedicado'],
-    gradient: 'from-purple-600 to-pink-500',
-    bgGradient: 'from-purple-500/10 to-transparent'
+    gradient: 'from-accent to-primary',
+    bgGradient: 'from-accent/10 to-transparent'
   }
 ];
 
@@ -69,8 +69,8 @@ export function ProcessSection() {
               
               <div className="relative z-10 space-y-6">
                 <div className="flex items-start justify-between">
-                  <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${step.gradient} flex items-center justify-center shadow-lg`}>
-                    <step.icon className="w-7 h-7 text-white" />
+                  <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${step.gradient} flex items-center justify-center shadow-lg glow-cyan`}>
+                    <step.icon className="w-7 h-7 text-white icon-neon" />
                   </div>
                   <div className={`text-6xl font-bold bg-gradient-to-br ${step.gradient} bg-clip-text text-transparent opacity-20`}>
                     {index + 1}

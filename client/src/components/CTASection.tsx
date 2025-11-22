@@ -9,7 +9,7 @@ export function CTASection() {
   return (
     <section className="py-24 relative overflow-hidden">
       <div 
-        className="absolute inset-0 bg-gradient-to-br from-primary via-accent/50 to-primary animate-gradient-shift"
+        className="absolute inset-0 bg-gradient-to-br from-destructive via-primary/50 to-destructive animate-gradient-shift"
         style={{ backgroundSize: '300% 300%' }}
       />
       
@@ -23,7 +23,7 @@ export function CTASection() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center space-y-8">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 border border-white/30 backdrop-blur-sm">
-            <Zap className="w-4 h-4 text-white" />
+            <Zap className="w-4 h-4 text-white icon-neon" />
             <span className="text-sm font-medium text-white">Comece hoje mesmo</span>
           </div>
 
@@ -63,15 +63,15 @@ export function CTASection() {
 
           <div className="flex flex-wrap items-center justify-center gap-6 pt-4 text-sm text-white/80">
             <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4" />
+              <CheckCircle2 className="w-4 h-4 icon-neon" />
               <span>Sem compromisso</span>
             </div>
             <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4" />
+              <CheckCircle2 className="w-4 h-4 icon-neon" />
               <span>Consultoria gratuita</span>
             </div>
             <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4" />
+              <CheckCircle2 className="w-4 h-4 icon-neon" />
               <span>ROI garantido</span>
             </div>
           </div>

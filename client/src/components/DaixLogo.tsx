@@ -1,12 +1,13 @@
 export function DaixLogo({ className = "" }: { className?: string }) {
   return (
     <div className={`flex items-center gap-1 ${className}`}>
-      <div className="text-2xl font-bold text-foreground">
-        DAI
+      <div className="text-2xl font-bold">
+        <span className="text-primary">DAI</span>
         <span 
-          className="inline-block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent animate-pulse-glow"
+          className="inline-block icon-neon"
           style={{ 
-            filter: "drop-shadow(0 0 8px rgba(0, 102, 255, 0.3))"
+            color: 'hsl(var(--daix-secondary))',
+            filter: "drop-shadow(0 0 8px rgba(120, 6, 6, 0.6))"
           }}
         >
           X

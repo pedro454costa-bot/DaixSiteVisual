@@ -84,8 +84,8 @@ export function BenefitsSection() {
             <div className="space-y-6">
               {benefits.map((benefit, index) => (
                 <div key={index} className="flex gap-4" data-testid={`benefit-${index}`}>
-                  <div className="w-12 h-12 rounded-md bg-primary/10 flex items-center justify-center shrink-0">
-                    <benefit.icon className="w-6 h-6 text-primary" />
+                  <div className="w-12 h-12 rounded-md bg-primary/10 flex items-center justify-center shrink-0 glow-blue">
+                    <benefit.icon className="w-6 h-6 text-primary icon-neon" />
                   </div>
                   <div className="space-y-1">
                     <h3 className="text-lg font-semibold text-foreground">{benefit.title}</h3>

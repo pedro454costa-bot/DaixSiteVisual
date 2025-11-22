@@ -66,8 +66,8 @@ export function SolutionsSection() {
               data-testid={`card-solution-${index}`}
             >
               <div className="space-y-6">
-                <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                  <solution.icon className="w-7 h-7 text-white" />
+                <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center glow-cyan">
+                  <solution.icon className="w-7 h-7 text-white icon-neon" />
                 </div>
 
                 <div className="space-y-3">
@@ -82,7 +82,7 @@ export function SolutionsSection() {
                 <ul className="space-y-3">
                   {solution.features.map((feature, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                      <Check className="w-5 h-5 text-accent icon-neon shrink-0 mt-0.5" />
                       <span className="text-sm text-card-foreground">{feature}</span>
                     </li>
                   ))}

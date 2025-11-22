@@ -53,7 +53,7 @@ export function HeroSection() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in-up">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm" data-testid="badge-hero">
-            <Sparkles className="w-4 h-4 text-primary" />
+            <Sparkles className="w-4 h-4 text-primary icon-neon" />
             <span className="text-sm font-medium text-primary">Inteligência Artificial para o seu negócio</span>
           </div>
 
@@ -99,15 +99,15 @@ export function HeroSection() {
 
           <div className="flex flex-wrap items-center justify-center gap-6 pt-8 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-green-500" />
+              <CheckCircle2 className="w-4 h-4 icon-neon" style={{ color: 'hsl(var(--daix-success))' }} />
               <span>Sem instalação</span>
             </div>
             <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-green-500" />
+              <CheckCircle2 className="w-4 h-4 icon-neon" style={{ color: 'hsl(var(--daix-success))' }} />
               <span>Sem mensalidades</span>
             </div>
             <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-green-500" />
+              <CheckCircle2 className="w-4 h-4 icon-neon" style={{ color: 'hsl(var(--daix-success))' }} />
               <span>Suporte dedicado</span>
             </div>
           </div>
